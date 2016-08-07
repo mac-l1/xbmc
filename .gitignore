@@ -124,6 +124,7 @@ cmake_install.cmake
 /addons/skin.estouchy/media/Makefile
 /addons/skin.estouchy/media/Textures.xbt
 /addons/skin.pm3-hd/media/Textures.xbt
+/addons/visualization.itunes/iTunes.mvis
 /addons/script.module.pil/
 /addons/script.module.pycryptodome/
 /addons/audioencoder.*
@@ -516,6 +517,19 @@ lib/cpluff/stamp-h1
 
 # /portable_data
 /portable_data
+
+/addons/library.xbmc.addon/libXBMC_addon.dll
+/addons/library.xbmc.addon/libXBMC_addon.lib
+/addons/library.kodi.adsp/libKODI_adsp.dll
+/addons/library.kodi.adsp/libKODI_adsp.lib
+/addons/library.xbmc.codec/libXBMC_codec.dll
+/addons/library.xbmc.codec/libXBMC_codec.lib
+/addons/library.kodi.guilib/libKODI_guilib.dll
+/addons/library.kodi.guilib/libKODI_guilib.lib
+/addons/library.xbmc.pvr/libXBMC_pvr.dll
+/addons/library.xbmc.pvr/libXBMC_pvr.lib
+/addons/library.kodi.audioengine/libKODI_audioengine.dll
+/addons/library.kodi.audioengine/libKODI_audioengine.lib
 
 /pvr-addons
 /adsp-addons
