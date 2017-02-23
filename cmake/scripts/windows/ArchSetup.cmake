@@ -23,6 +23,7 @@ if(${ARCH} STREQUAL win32)
 elseif(${ARCH} STREQUAL Win64)
   list(APPEND CMAKE_SYSTEM_PREFIX_PATH ${CMAKE_SOURCE_DIR}/project/BuildDependencies/x64)
 endif()
+list(APPEND CMAKE_SYSTEM_PREFIX_PATH ${CMAKE_SOURCE_DIR}/project/BuildDependencies)
 
 if(${ARCH} STREQUAL win32)
   set(PYTHON_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/project/BuildDependencies/include/python)

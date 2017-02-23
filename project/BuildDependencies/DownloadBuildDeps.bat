@@ -56,7 +56,7 @@ rmdir %TMP_PATH% /S /Q
 
 cd ..
 
-COPY x64\bin\* %APP_PATH%\system
+XCOPY /s /y x64\bin\* %APP_PATH%\system
 
 REM Restore the previous current directory
 POPD
