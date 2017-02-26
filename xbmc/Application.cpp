@@ -455,14 +455,6 @@ bool CApplication::Create()
   m_threadID = CThread::GetCurrentThreadId();
 
   //! @todo - move to CPlatformXXX
-#ifndef TARGET_POSIX
-  //floating point precision to 24 bits (faster performance)
-#if !defined(_AMD64_)
-  _controlfp(_PC_24, _MCW_PC);
-#endif
-#endif
-
-  //! @todo - move to CPlatformXXX
   #if defined(TARGET_POSIX)
     // set special://envhome
     CSpecialProtocol::SetEnvHomePath(getenv("HOME"));
