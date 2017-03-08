@@ -43,6 +43,11 @@ if(IMX_FOUND)
   list(APPEND HEADERS RendererIMX.h)
 endif()
 
+if(ROCKCHIP_FOUND)
+  list(APPEND SOURCES RendererRKCodec.cpp)
+  list(APPEND HEADERS RendererRKCodec.h)
+endif()
+
 if(CORE_SYSTEM_NAME STREQUAL android)
   list(APPEND SOURCES RendererMediaCodec.cpp
                       RendererMediaCodecSurface.cpp)

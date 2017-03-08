@@ -63,4 +63,9 @@ if(CORE_SYSTEM_NAME STREQUAL android)
   list(APPEND HEADERS DVDVideoCodecAndroidMediaCodec.h)
 endif()
 
+if(ROCKCHIP_FOUND)
+  list(APPEND SOURCES DVDVideoCodecRKCodec.cpp)
+  list(APPEND HEADERS DVDVideoCodecRKCodec.h)
+endif()
+
 core_add_library(dvdvideocodecs)

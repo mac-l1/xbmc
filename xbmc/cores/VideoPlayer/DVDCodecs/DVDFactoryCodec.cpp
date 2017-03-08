@@ -41,6 +41,9 @@
 #include "Video/DVDVideoCodecAndroidMediaCodec.h"
 #include "platform/android/activity/AndroidFeatures.h"
 #endif
+#if defined(HAVE_ROCKCHIP)
+#include "Video/DVDVideoCodecRKCodec.h"
+#endif
 #include "Audio/DVDAudioCodecFFmpeg.h"
 #include "Audio/DVDAudioCodecPassthrough.h"
 #include "Overlay/DVDOverlayCodecSSA.h"
@@ -145,6 +148,8 @@ CDVDVideoCodec* CDVDFactoryCodec::CreateVideoCodec(CDVDStreamInfo &hint, CProces
     pCodec = OpenCodec(new CDVDVideoCodecIMX(processInfo), hint, options);
 #elif defined(TARGET_ANDROID)
     pCodec = OpenCodec(new CDVDVideoCodecAndroidMediaCodec(processInfo), hint, options);
+#elif defined(HAVE_ROCKCHIP)
+    pCodec = OpenCodec(new CDVDVideoCodecRKCodec(processInfo), hint, options);
 #elif defined(HAVE_LIBOPENMAX)
     pCodec = OpenCodec(new CDVDVideoCodecOpenMax(processInfo), hint, options);
 #elif defined(HAS_MMAL)

@@ -70,6 +70,10 @@
 #include "HwDecRender/RendererMediaCodecSurface.h"
 #endif
 
+#if defined(HAVE_ROCKCHIP)
+#include "HwDecRender/RendererRKCodec.h"
+#endif
+
 #if defined(TARGET_POSIX)
 #include "linux/XTimeUtils.h"
 #endif
@@ -112,6 +116,7 @@ static std::string GetRenderFormatName(ERenderFormat format)
     case RENDER_FMT_IMXMAP:    return "IMXMAP";
     case RENDER_FMT_MMAL:      return "MMAL";
     case RENDER_FMT_AML:       return "AMLCODEC";
+    case RENDER_FMT_ROCKCHIP:  return "ROCKCHIP";
     case RENDER_FMT_NONE:      return "NONE";
   }
   return "UNKNOWN";
@@ -539,6 +544,12 @@ void CRenderManager::CreateRenderer()
     {
 #if defined(TARGET_DARWIN)
       m_pRenderer = new CRendererVTB;
+#endif
+    }
+    else if (m_format == RENDER_FMT_ROCKCHIP)
+    {
+#if defined(HAVE_ROCKCHIP)
+      m_pRenderer = new CRendererRKCodec;
 #endif
     }
     else if (m_format == RENDER_FMT_MEDIACODEC)
@@ -1149,6 +1160,7 @@ int CRenderManager::AddVideoPicture(DVDVideoPicture& pic)
   || pic.format == RENDER_FMT_AML
   || pic.format == RENDER_FMT_IMXMAP
   || pic.format == RENDER_FMT_MMAL
+  || pic.format == RENDER_FMT_ROCKCHIP
   || m_pRenderer->IsPictureHW(pic))
   {
     m_pRenderer->AddVideoPictureHW(pic, index);
